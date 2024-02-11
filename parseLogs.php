@@ -38,7 +38,6 @@ foreach ($logLineParts as $key => $rows) :
     $ber = str_replace(["TG", "to", "seconds,", "BER", ":", "%", "packet", ","], "", $ber);
     //echo $ber;
     $action = $rows[6] . $rows[7];
-
     $action = str_replace(['encryptedvoice', 'affiliationrequest', 'grantrequest', 'endoftransmission', 'voicetransmission'],
         ["<span style='color:orange'>Encrypted Voice</span>","<span style='color:blue'>Affiliation Request</span>",
             "<span style='color:yellow'>Group Grant Request</span>",
@@ -50,13 +49,13 @@ foreach ($logLineParts as $key => $rows) :
     if (strpos($tTg, '%') !== false){
         continue;
     }
-    $tTg = str_replace(["packet", "loss", "block", "s"], "", $tTg);
+    $tTg = str_replace(["TG" ,"packet", "loss", "block", "s"], "", $tTg);
 
     if (empty($tTg)){
         continue;
     }
-    $srcId = $rows[9] . $rows[10];
-    $srcId = str_replace(["TG", ",","to"], "", $srcId);
+    $srcId =  $rows[9] . $rows[10];
+    $srcId = str_replace(["TG", "from", ",","to"], "", $srcId);
     if (empty($srcId)){
         continue;
     }
