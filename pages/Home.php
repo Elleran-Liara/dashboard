@@ -158,7 +158,65 @@ if (function_exists('yaml_parse')) {
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>DVM Monitor</h1>
-      <div id="logs"></div> 
+      <table>
+<tbody style='display: table-header-group;' id="center"></tbody>
+    <thead>
+
+<span style="color:grey;">
+  <?php
+  //ar_dump($ridAlias);
+foreach ($logLineParts as $key => $rows) :
+    $ber = $rows[10] . $rows[11];
+    $ber = str_replace(["TG", "to", "seconds,", "BER", ":", "%", "packet", ","], "", $ber);
+    //echo $ber;
+    $action = $rows[6] . $rows[7];
+    $action = str_replace(['encryptedvoice', 'affiliationrequest', 'grantrequest', 'endoftransmission', 'voicetransmission'],
+        ["<span style='color:orange'>Enc Transmission</span>","<span style='color:blue'>Affiliation Request</span>",
+            "<span style='color:yellow'>Group Grant Request</span>",
+            "End of Voice Transmission",
+            "<span style='color:red'>Voice Transmission</span>"
+        ],
+        $action);
+    $tTg = $rows[12] . $rows[13];
+    if (strpos($tTg, '%') !== false){
+        continue;
+    }
+    $tTg = str_replace(["TG" ,"packet", "loss", "block", "s"], "", $tTg);
+
+    if (empty($tTg)){
+        continue;
+    }
+    $srcId =  $rows[9] . $rows[10];
+    $srcId = str_replace(["TG", "from", ",","to"], "", $srcId);
+    if (empty($srcId)){
+        continue;
+    }
+
+
+?>
+
+</span>
+  <tr class="item_row" style="align-content: center">
+      <?php for ($x = 1; $x <= 4; $x++) :?>
+        <?php
+          $rows[$x] = str_replace("Net", "NET", $rows[$x]);
+          //TODO: Fix to use id and tg alias
+/*            foreach ($ridAlias as $alias){
+                $rows[$x] = str_replace($alias['id'], $alias['name'], $rows[$x]);
+                //echo $alias['id'];
+            }*/
+            ?>
+     
+        <td> <?php echo "<span style='font-size: $fontsize; color:black'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
+      <?php endfor;?>
+      <td class="align-middle"> <?php echo "<span style='font-size: $fontsize; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td class="align-middle text-center text-sm"> <?php echo "<span style='font-size: $fontsize; color: A4F644;'>" . $srcId . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td> <?php echo "<span style='font-size: $fontsize; color: A4F644;'> " . $tTg . "</span>"; ?>&nbsp;&nbsp;</td>
+  </tr>
+<?php endforeach;
+echo "</tbody>";
+echo "</table>";
+?>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

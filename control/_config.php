@@ -5,7 +5,7 @@
         $ridacl = '/opt/centrunk/configs/rid_acl.dat';
 
         $apihost = 'monitor.centrunk.net';
-        $apikey = 'gipdrmhi[jhneitnham00i4';
+        $apikey = 'XXXXXXXXXXXXXXXXXXXXX';
         $sysconfig = $vcconfig;
         $port = '443';
         $username = 'admin';
@@ -16,6 +16,7 @@
         $showIdAlias = 'false';
         $showTgAlias = 'false';
         $defaultTimeZone = 'true';
-        $customTimeZone = "America/New_York"
+        $customTimeZone = "America/New_York";
+        $fontsize = '28px';
         
 ?>

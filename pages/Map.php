@@ -76,7 +76,39 @@
     </div>
   </div>
 </nav>
-    <iframe src="https://monitor.centrunk.net/fnePeerMap" width="1100" height="700" title="CTRS Web Map"></iframe>
+
+    <div class="container-fluid">
+        <?php
+$path = '/api/tg/list';
+$url = "https://$apihost:$port$path";
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER, [
+    'X-DVMFNE-MANAGER-API-KEY: ' . $apikey
+]);
+
+$response = curl_exec($curl);
+$httpStatusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+if (curl_errno($curl)) {
+    echo "error: " . curl_error($curl);
+} else if ($httpStatusCode == 200) {
+   // echo "Response: " . $response;
+   echo  '
+   <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Austin+Texas" width="800" height="800" frameborder="0" style="border:0" allowfullscreen></iframe>';
+} else {
+    echo '<iframe src="https://monitor.centrunk.net/fnePeerMap" width="1100" height="700" title="CTRS Web Map"></iframe>';
+}
+
+curl_close($curl);
+$arr = json_decode($response, true);
+
+        
+            
+            
+?>
+</div>
 <footer class="container-fluid text-center">
   <p>&copy; Copyright <?php echo date("Y");?> Hanna Johnson. All rights reserved.</p>
 </footer>
