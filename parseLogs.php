@@ -62,7 +62,7 @@ foreach ($logLineParts as $key => $rows) :
 
 
 ?>
-
+ 
 </span>
   <tr class="item_row" style="align-content: center">
       <?php for ($x = 1; $x <= 4; $x++) :?>
