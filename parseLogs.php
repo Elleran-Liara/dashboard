@@ -39,7 +39,7 @@ foreach ($logLineParts as $key => $rows) :
     //echo $ber;
     $action = $rows[6] . $rows[7];
     $action = str_replace(['encryptedvoice', 'affiliationrequest', 'grantrequest', 'endoftransmission', 'voicetransmission'],
-        ["<span style='color:orange'>Encrypted Voice</span>","<span style='color:blue'>Affiliation Request</span>",
+        ["<span style='color:orange'>Voice Encrypted</span>","<span style='color:blue'>Affiliation Request</span>",
             "<span style='color:yellow'>Group Grant Request</span>",
             "End of Voice Transmission",
             "<span style='color:red'>Voice Transmission</span>"
