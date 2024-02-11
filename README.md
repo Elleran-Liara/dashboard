@@ -4,3 +4,5 @@ cd /var/www/html </br>
 git clone https://github.com/hannajohnsona/dashboard.git </br>
 sudo visudo </br>
 ALL ALL=(root) NOPASSWD: /usr/sbin/service </br>
+sudo visudo // go to the bottom of the page</br>
+www-data ALL = NOPASSWD: /bin/systemctl</br>
