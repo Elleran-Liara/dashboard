@@ -16,6 +16,7 @@
         $showIdAlias = 'false';
         $showTgAlias = 'false';
         $defaultTimeZone = 'true';
-        $customTimeZone = "America/New_York"
+        $customTimeZone = "America/New_York";
+        $fontsize = '28px';
         
 ?>
