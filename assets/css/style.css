@@ -116,17 +116,17 @@
     }
     
     /* Set black background color, white text and some padding */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-     height:24px; // Replace with the height your footer should be
-    width: 100%; // Don't change
-    position: absolute;
-    text-align: center;
+      footer {
+      position: absolute;
+  	  bottom: 0;
+  	  width: 100%;
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
         
         
         /* Footer height */
-}
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {

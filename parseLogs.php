@@ -30,7 +30,7 @@
 <tbody style='display: table-header-group;' id="center"></tbody>
     <thead>
 
-<span style="color:grey;">
+<span style="color:green;">
   <?php
   //ar_dump($ridAlias);
 foreach ($logLineParts as $key => $rows) :
@@ -50,13 +50,13 @@ foreach ($logLineParts as $key => $rows) :
     if (strpos($tTg, '%') !== false){
         continue;
     }
-    $tTg = str_replace(["packet", "loss", "block", "s"], "", $tTg);
+    $tTg = str_replace(["TG", "packet", "loss", "block", "s"], "", $tTg);
 
     if (empty($tTg)){
         continue;
     }
     $srcId = $rows[9] . $rows[10];
-    $srcId = str_replace(["TG", ",","to"], "", $srcId);
+    $srcId = str_replace(["from", "TG", ",","to"], "", $srcId);
     if (empty($srcId)){
         continue;
     }
@@ -76,11 +76,11 @@ foreach ($logLineParts as $key => $rows) :
             }*/
             ?>
      
-        <td> <?php echo "<span style='font-size: 28px; color:black'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
+        <td> <?php echo "<span style='font-size: 20px; color:green'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
       <?php endfor;?>
-      <td class="align-middle"> <?php echo "<span style='font-size: 28px; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
-      <td class="align-middle text-center text-sm"> <?php echo "<span style='font-size: 28px; color: A4F644;'>" . $srcId . "</span>"; ?>&nbsp;&nbsp;</td>
-      <td> <?php echo "<span style='font-size: 28px; color: A4F644;'> " . $tTg . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td class="align-middle"> <?php echo "<span style='font-size: 20px; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td class="align-middle text-center text-sm"> <?php echo "<span style='font-size: 20px; color: A4F644;'>" . $srcId . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td> <?php echo "<span style='font-size: 20px; color: A4F644;'> " . $tTg . "</span>"; ?>&nbsp;&nbsp;</td>
   </tr>
 <?php endforeach;
 echo "</tbody>";
