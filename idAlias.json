@@ -1,0 +1,24 @@
+{
+  "rIds":[
+   {
+     "name": " Your name? ",
+     "id": "34567"
+   },
+   {
+     "name": " Your alias ",
+     "id": "1234"
+   }
+  ],
+  "tgIds":[
+   {
+     "name": " Operations ",
+     "id": "31611"
+   },
+   {
+     "name": " TAC 1 ",
+     "id": "31612"
+   }
+     
+
+  ]
+}

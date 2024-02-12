@@ -158,8 +158,11 @@ if (function_exists('yaml_parse')) {
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>DVM Monitor</h1>
-      <div id="logs"></div> 
+<div id="container" style="height: 700px; overflow: scroll; margin: auto; background-color: white;">
+
+        <div id="logs"></div>
     </div>
+      </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
 <?php
