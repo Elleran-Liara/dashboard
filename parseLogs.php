@@ -1,4 +1,5 @@
 <?php
+    require('control/_config.php');
     date_default_timezone_set("UTC"); // set the time zone to UTC bc thats what dvmhost is
     $cDate = date("Y-m-d"); // get the time so it knows the log to use
     $lType = ".activity"; //type of log. for future additions
@@ -38,9 +39,8 @@ foreach ($logLineParts as $key => $rows) :
     $ber = str_replace(["TG", "to", "seconds,", "BER", ":", "%", "packet", ","], "", $ber);
     //echo $ber;
     $action = $rows[6] . $rows[7];
-
     $action = str_replace(['encryptedvoice', 'affiliationrequest', 'grantrequest', 'endoftransmission', 'voicetransmission'],
-        ["<span style='color:orange'>Encrypted Voice</span>","<span style='color:blue'>Affiliation Request</span>",
+        ["<span style='color:orange'>Enc Transmission</span>","<span style='color:blue'>Affiliation Request</span>",
             "<span style='color:yellow'>Group Grant Request</span>",
             "End of Voice Transmission",
             "<span style='color:red'>Voice Transmission</span>"
@@ -63,7 +63,7 @@ foreach ($logLineParts as $key => $rows) :
 
 
 ?>
-
+ 
 </span>
   <tr class="item_row" style="align-content: center">
       <?php for ($x = 1; $x <= 4; $x++) :?>
