@@ -75,11 +75,9 @@ if (array_key_exists($srcId, $mapping)) {
 if (array_key_exists($tTg, $rmapping)) {
     // Change $srcId to the corresponding text
     $srctgText = $rmapping[$tTg];
-    echo "The text for srcId $tTg is $srctgText.";
 } else {
     // Use the combine function to create a new text
     $srctgText = $tTg;
-    echo "The text for srcId $tTg is $srctgText.";
 }
 
 
@@ -100,7 +98,9 @@ if (array_key_exists($tTg, $rmapping)) {
         <td> <?php echo "<span style='font-size: 20px; color:green'>" . $rows[$x] . "</span>"; ?>&nbsp;&nbsp;</td>
       <?php endfor;?>
       <td class="align-middle"> <?php echo "<span style='font-size: 20px; font-family: sans-serif;'>" . $action . "</span>"; ?>&nbsp;&nbsp;</td>
-      <td class="align-middle text-center text-sm"> <?php echo "<span style='font-size: 20px; color: A4F644;'>" . $srcIdText . "</span>"; ?>&nbsp;&nbsp;</td>
+      <td class="align-middle text-center text-sm">
+    <?php echo "<span style='font-size: 20px; color: A4F644;'>" . $srcIdText . " (" . $srcId . ")</span>"; ?>&nbsp;&nbsp;
+      </td>
       <td> <?php echo "<span style='font-size: 20px; color: A4F644;'> " . $srctgText . "</span>"; ?>&nbsp;&nbsp;</td>
   </tr>
 <?php endforeach;
